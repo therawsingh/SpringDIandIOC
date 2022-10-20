@@ -10,11 +10,14 @@
 
     <!-- define engine beans -->
 
+    <context:property-placeholder location="classpath:vehicle.properties"/>
+
     <bean id="carEngine" class="com.dioc.demo.CarEngine">
         <constructor-arg ref="accel"/>
+        <property name="carModel" value="${foo.carModel}"/>
     </bean>
 
-    <bean id="bikeEngine" class="com.dioc.demo.BikeEngine">
+    <bean id="bikeEngine" class="com.dioc.demo.BikeEngine" scope="prototype">
         <property name="action" ref="decel"/>
     </bean>
 
@@ -25,7 +28,7 @@
 
     <!-- define engine work beans -->
 
-    <bean id="accel" class="com.dioc.demo.Accelerate">
+    <bean id="accel" class="com.dioc.demo.Accelerate" init-method="onInit" destroy-method="onDest">
 
     </bean>
 

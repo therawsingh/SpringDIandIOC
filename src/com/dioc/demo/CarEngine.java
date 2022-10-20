@@ -4,6 +4,16 @@ public class CarEngine implements Engine{
 
     private EngineAction action;
 
+    public String getCarModel() {
+        return carModel;
+    }
+
+    public void setCarModel(String carModel) {
+        this.carModel = carModel;
+    }
+
+    private String carModel;
+
     public CarEngine(EngineAction action){
 
         this.action = action;
